@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -27,10 +28,13 @@ public class HauntedMansion {
 	
 	public static void main(String[] args) {
 		new HauntedMansion();
+
+		List<String> inv = new ArrayList<String>();
+		List<String> kitItems = new ArrayList<String>();
 		
 		String choice;
 		Scanner input = new Scanner(System.in);
-		System.out.println("Welcome to the Haunted Mansion! This is a simple text-based exploration game. To play, type any command you wish to execute. \nIf it is a valid command, your character will go through with the action.\nTyping 'explore' at any time will allow you to explore your current surroundings.");
+		System.out.println("Welcome to the Haunted Mansion! This is a simple text-based exploration game. To play, type any command you wish to execute. \nIf it is a valid command, your character will go through with the action.\nTyping 'explore' at any time will allow you to explore your current surroundings.\nTyping 'look' at any time will show you a list of all items in your current location that you may pick up.");
 		System.out.println("Press Enter");
 		choice = input.nextLine();
 
@@ -38,7 +42,10 @@ public class HauntedMansion {
 		choice = input.nextLine();
 		System.out.print("> ");
 		if (choice.equals ("left")) {
-			
+			kitItems.add("Screwdriver");
+			kitItems.add("Duct Tape");
+			kitItems.add("Nails");
+			kitItems.add("Ladle");
 			slowPrintln("You enter the kitchen.");
 			System.out.println("What next?");
 			choice = input.nextLine();
@@ -46,9 +53,8 @@ public class HauntedMansion {
 			if (choice.equals ("explore")) {
 				slowPrintln("The entire room is destroyed. There appears to have been a fire, but only the kitchen seems to have been affected.");
 				}
-			if (choice.equals ("take [SWORD]")) {
-
-				new inventory (SWORD);
+			if (choice.equals ("look")) {
+				System.out.println(kitItems);
 			}
 		}
 		else if (choice.equals("right")) {
